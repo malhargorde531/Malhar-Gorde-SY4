@@ -1,0 +1,45 @@
+class Mobile:
+    def __init__(self, brand, model, price):
+        self.brand = brand
+        self.model = model
+        self.price = price
+
+    def category(self):
+        if self.price >= 50000:
+            return "Premium"
+        elif self.price >= 20000:
+            return "Mid-range"
+        else:
+            return "Budget"
+
+    def display(self):
+        print("Brand:", self.brand)
+        print("Model:", self.model)
+        print("Price: ₹", self.price)
+        print("Category:", self.category())
+        print("------------------------")
+
+
+class Store:
+    def __init__(self):
+        self.mobiles = []
+
+    def add_mobile(self, mobile):
+        self.mobiles.append(mobile)
+
+    def display_all(self):
+        print("\n--- Mobile Store Details ---")
+        for mobile in self.mobiles:
+            mobile.display()
+
+
+# Create Store object
+store = Store()
+
+# Add mobiles
+store.add_mobile(Mobile("Apple", "iPhone 15", 60000))
+store.add_mobile(Mobile("Samsung", "Galaxy A55", 25000))
+store.add_mobile(Mobile("Redmi", "Note 13", 15000))
+
+# Display all mobiles
+store.display_all()
