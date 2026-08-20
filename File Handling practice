@@ -1,0 +1,50 @@
+# Basic File Handling Program
+
+# 1. Create and write into a file
+file = open("employee.txt", "w")
+
+file.write("Name: Rahul\n")
+file.write("Course: Information Technology\n")
+file.write("College: DY Patil University\n")
+
+file.close()
+
+
+# 2. Read the complete file
+file = open("employee.txt", "r")
+
+data = file.read()
+print("File Content:")
+print(data)
+
+file.close()
+
+
+# 3. Read one line
+file = open("employee.txt", "r")
+
+line = file.readline()
+print("First Line:")
+print(line)
+
+file.close()
+
+
+# 4. Read all lines
+file = open("employee.txt", "r")
+
+lines = file.readlines()
+print("All Lines:")
+print(lines)
+
+file.close()
+
+
+# 5. Append new data
+file = open("employee.txt", "a")
+
+file.write("Year: Second Year\n")
+
+file.close()
+
+print("New data added successfully.")
