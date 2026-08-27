@@ -1,0 +1,40 @@
+class Vehicle:
+    def __init__(self, vehicle_number, brand, price, category):
+        self.vehicle_number = vehicle_number
+        self.brand = brand
+        self.price = price
+        self.category = category
+
+    def display(self):
+        print("Vehicle Number:", self.vehicle_number)
+        print("Brand:", self.brand)
+        print("Price:", self.price)
+        print("Category:", self.category)
+        print()
+
+
+class Showroom:
+    def __init__(self):
+        self.vehicles = []
+
+    def add_vehicle(self, vehicle):
+        self.vehicles.append(vehicle)
+
+    def display_all(self):
+        for vehicle in self.vehicles:
+            vehicle.display()
+
+
+showroom = Showroom()
+
+v1 = Vehicle("MH12AB1234", "BMW", 7500000, "Luxury")
+v2 = Vehicle("MH14CD5678", "Maruti", 850000, "Economy")
+v3 = Vehicle("MH12EF9012", "Mercedes", 9500000, "Luxury")
+v4 = Vehicle("MH14GH3456", "Tata", 1200000, "Economy")
+
+showroom.add_vehicle(v1)
+showroom.add_vehicle(v2)
+showroom.add_vehicle(v3)
+showroom.add_vehicle(v4)
+
+showroom.display_all()
