@@ -1,0 +1,17 @@
+with open("data.txt", "r") as file:
+    lines = file.readlines()
+
+count = len(lines)
+
+print("Total number of lines:", count)
+
+first_two = lines[:2]
+
+print("\nFirst two lines:")
+for line in first_two:
+    print(line, end="")
+
+with open("result.txt", "w") as file:
+    file.writelines(first_two)
+
+print("\n\nFirst two lines copied to result.txt successfully!")
