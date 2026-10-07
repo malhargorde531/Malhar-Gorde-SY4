@@ -1,0 +1,30 @@
+import csv
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("filename")
+args = parser.parse_args()
+
+mobiles = []
+
+with open(args.filename, "r") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        mobiles.append(row)
+
+print("Mobile Records:")
+for mobile in mobiles:
+    print(mobile)
+
+brand = input("Enter Brand Name to search: ")
+
+print("Search Results:")
+found = False
+
+for mobile in mobiles:
+    if mobile["Brand"].lower() == brand.lower():
+        print(mobile)
+        found = True
+
+if not found:
+    print("Mobile not found")
