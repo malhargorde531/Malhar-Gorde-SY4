@@ -1,0 +1,31 @@
+class Patient:
+    def __init__(self, patient_id, name, treatment_cost, category):
+        self.patient_id = patient_id
+        self.name = name
+        self.treatment_cost = treatment_cost
+        self.category = category
+
+
+class Hospital:
+    def __init__(self):
+        self.patients = []
+
+    def add_patient(self, patient):
+        self.patients.append(patient)
+
+    def display_records(self):
+        for patient in self.patients:
+            print("Patient ID:", patient.patient_id)
+            print("Name:", patient.name)
+            print("Treatment Cost:", patient.treatment_cost)
+            print("Category:", patient.category)
+            print()
+
+
+hospital = Hospital()
+
+hospital.add_patient(Patient(101, "Rahul", 5000, "General"))
+hospital.add_patient(Patient(102, "Priya", 12000, "Special"))
+hospital.add_patient(Patient(103, "Amit", 7000, "General"))
+
+hospital.display_records()
