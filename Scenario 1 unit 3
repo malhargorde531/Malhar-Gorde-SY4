@@ -1,31 +1,29 @@
-class Patient:
-    def __init__(self, patient_id, name, treatment_cost, category):
-        self.patient_id = patient_id
-        self.name = name
-        self.treatment_cost = treatment_cost
-        self.category = category
+import csv
 
+patients = []
 
-class Hospital:
-    def __init__(self):
-        self.patients = []
+with open("patients.csv", "r") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        patients.append(row)
 
-    def add_patient(self, patient):
-        self.patients.append(patient)
+print("Patient Records:")
+for patient in patients:
+    print(patient)
 
-    def display_records(self):
-        for patient in self.patients:
-            print("Patient ID:", patient.patient_id)
-            print("Name:", patient.name)
-            print("Treatment Cost:", patient.treatment_cost)
-            print("Category:", patient.category)
-            print()
+patient_id = input("Enter Patient ID to search: ")
 
+found = False
 
-hospital = Hospital()
+for patient in patients:
+    if patient["Patient ID"] == patient_id:
+        print("Patient Found:")
+        print("Patient ID:", patient["Patient ID"])
+        print("Name:", patient["Name"])
+        print("Treatment Cost:", patient["Treatment Cost"])
+        print("Category:", patient["Category"])
+        found = True
+        break
 
-hospital.add_patient(Patient(101, "Rahul", 5000, "General"))
-hospital.add_patient(Patient(102, "Priya", 12000, "Special"))
-hospital.add_patient(Patient(103, "Amit", 7000, "General"))
-
-hospital.display_records()
+if not found:
+    print("Patient not found")
